@@ -15,8 +15,14 @@ const Time = (props) => {
     },1000);
     
     return(
-        <div className={props.selectedType}>
-            <div className="date_body">
+        <div className={
+            props.selectedType === "neon"?
+            `${props.selectedType} ${props.neon}`:
+            `${props.selectedType}`
+        }>
+            <div className="date_body"
+                {...props.selectedType==="noframe" && {style:{color:props.color}}}
+            >
                 <div className="date_day">{day}</div>
                 <div className="date_date">{date}</div>
                 <div className="date_time">{time}</div>

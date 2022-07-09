@@ -3,13 +3,34 @@
   padding: 20px;
   width: 100%;
   height: 300px;
-  background-color: #00ff00;
   display: flex;
   align-items: center;
+}
+
+.frame.green{
+  background-color: #00ff00;
+}
+.frame.red{
+  background-color: #ff0000;
+}
+.frame.blue{
+  background-color: #0000ff;
 }
 .frame > *{
   margin: 0 auto
 }
+
+.chromakey{
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+}
+
+.chromakey > *{
+  margin: 10px;
+}
+
 .row{
   display: flex;
   flex-direction: column;
@@ -42,10 +63,39 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 .control li{
   cursor: pointer;
   margin: 10px;
+  font-size: 20px;
+}
+.control label, .control input{
+  cursor: pointer;
+}
+
+.noframe{
+  font-size: 20px;
+  line-height: 1.2;
+  font-family: futura-pt,sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #fff;
+}
+.noframe .date_day, .noframe .date_date{
+  font-size: 25px;
+  display: inline-block;
+  font-weight: bold;
+}
+.noframe .date_day{
+  margin-right: 10px;
+  margin-left: -10px;
+}
+.noframe .date_time{
+  font-size: 75px;
+  letter-spacing: 4px;
+  font-weight: bold;
 }
 
 .simple{
@@ -69,7 +119,7 @@
   transform: translate(-50%,-50%);
 }
 .simple .date_day,.simple .date_date{
-  opacity: 0.7;
+  opacity: 1;
 }
 .simple .date_time{
   font-size: 45px;
@@ -84,7 +134,7 @@
   background-image: url("./bg/pastel.png");
   background-size: contain;
   padding: 10px 20px;
-  color: #e978a7;
+  color: #fff;
   font-size: 20px;
   line-height: 1.2;
   font-family: marigny,sans-serif;
@@ -113,7 +163,7 @@
   font-weight: bold;
 }
 
-.neon{
+.neon.blue{
   position: relative;
   width: 300px;
   height: 120px;
@@ -130,7 +180,7 @@
   border-radius: 20px;
 }
 
-.neon::before{
+.neon.blue::before{
   content: "";
   position: absolute;
   top: 50%;
@@ -145,7 +195,7 @@
   border-radius: 10px;
 }
 
-.neon .date_body{
+.neon.blue .date_body{
   width:200px;
   position: relative;
   top: 55%;
@@ -153,19 +203,74 @@
   transform: translate(-50%,-50%);
   color: #a5f9ff;
 }
-.neon .date_day,.neon .date_date{
+.neon.blue .date_day,.neon .date_date{
   font-size: 15px;
   display: inline-block;
   filter: drop-shadow(0 0 5px rgba(255, 246, 143,0.5));
 }
-.neon .date_day{
+.neon.blue .date_day{
   margin-right: 10px;
 }
-.neon .date_time{
+.neon.blue .date_time{
   font-size: 55px;
   letter-spacing: 13px;
   font-weight: bold;
   filter: drop-shadow(0 0 5px rgba(255, 246, 143,0.5));
+}
+
+.neon.white{
+  position: relative;
+  width: 300px;
+  height: 120px;
+  border: 5px solid #fff;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-family: "Helvetica Neue", "Helvetica", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color:#dbdbdb;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.neon.white::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 95%;
+  height: 85%;
+  border: 2px solid #fff;
+  opacity: 0.7;
+  transform: translate(-50%,-50%);
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(255,255,255,0.8);
+  border-radius: 10px;
+}
+
+.neon.white .date_body{
+  width:200px;
+  position: relative;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  color: #fff;
+}
+.neon.white .date_day,.neon.white .date_date{
+  font-size: 15px;
+  display: inline-block;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255,0.5));
+}
+.neon.white .date_day{
+  margin-right: 10px;
+}
+.neon.white .date_time{
+  font-size: 55px;
+  letter-spacing: 13px;
+  font-weight: bold;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255,0.5));
 }
 
 .retroGame{
@@ -206,4 +311,43 @@
   grid-area: a;
   place-self: center;
   transform: scale(1,1.5);
+}
+
+.liquid{
+  position: relative;
+  width: 380px;
+  height: 150px;
+  background-image: url("./bg/liquidshape.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 10px 20px;
+  color: #fff;
+  font-size: 20px;
+  line-height: 1.2;
+  font-family: marigny,sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.liquid .date_body{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-40%);
+}
+.liquid .date_day,.liquid .date_date{
+  opacity: 0.7;
+  display: inline-block;
+  text-shadow: 0 0 5px rgba(130,180,200,0.8);
+}
+.liquid .date_day{
+  margin-right: 10px;
+  margin-left: -10px;
+}
+.liquid .date_time{
+  font-size: 60px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-shadow: 0 0 20px rgba(130,180,200,0.6);
 }
