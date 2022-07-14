@@ -53,10 +53,10 @@ function App() {
         </div>
       </div>
       <div className="inner">
-        <h1 className='page_title'>配信用オーバーレイ時計</h1>
+        <h1 className='page_title'>配信用&nbsp;時計オーバーレイ</h1>
         <p>配信で時刻を表示したい場合の素材としてご利用いただけます。</p>
         <p>デザインパターンは今後拡充予定です。</p>
-        <p>ご利用にあたって、ご意見、ご要望などはTwitter（<a href="https://twitter.com/ts_create_">@ts_create_</a>）のDMでお願いします。</p>
+        <p>ご利用にあたって、ご意見、ご要望などはTwitter（<a href="https://twitter.com/ts_create_" target="_blanc" rel="noopener">@ts_create_</a>）のDMでお願いします。</p>
         <section className='control'>
           <ul>
             {
@@ -65,7 +65,7 @@ function App() {
                   <li key={index}>
                     <input id={item} type="radio" name="type" value={item} onClick={onClickType}/>
                     <label htmlFor={item}>{item}</label>
-                    {item==="noframe" && <input type='color' defaultValue={color} style={{marginLeft:"10px"}} onChange={(e)=>colorSelect(e)}/>}
+                    {item==="noframe" && <input type='color' defaultValue={color} style={{marginLeft:"10px",width:"50px"}} onChange={(e)=>colorSelect(e)}/>}
                     {item==="neon" && 
                       <select style={{marginLeft:"10px"}} onChange={e=>neonSelect(e)}>
                         {neonArray.map((item,index)=>{
