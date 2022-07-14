@@ -6,6 +6,7 @@ function App() {
   const [selectedType, setSelectedType] = useState("noframe");
   const [color, setColor] = useState("#ffffff");
   const [neon,setNeon] = useState("white");
+  const [geometory, setGeometory] = useState("pattern1");
   const [chromakey, setChromakey] = useState("green");
   const [custom, setCustom] = useState("#000000");
 
@@ -18,6 +19,9 @@ function App() {
   const neonSelect = (e)=>{
     setNeon(e.target.value);
   }
+  const geometorySelect = (e)=>{
+    setGeometory(e.target.value);
+  }
   const changeChromakey = (e)=>{
     setChromakey(e.target.value);
   }
@@ -25,9 +29,10 @@ function App() {
     setCustom(e.target.value);
   }
 
-  const array = ["noframe","simple","pastel","neon","retroGame","liquid"];
+  const array = ["noframe","simple","pastel","neon","retroGame","liquid","geometory"];
   const neonArray = ["white","blue"];
   const chromakeyArray = ["green","red","blue","costom"];
+  const geometryArray = ["pattern1"];
 
   return (
     <div className="row">
@@ -39,7 +44,7 @@ function App() {
         }
         {...chromakey === "costom" && {style:{backgroundColor:custom}}}
       >
-        <Time selectedType={selectedType} color={color} neon={neon}/>
+        <Time selectedType={selectedType} color={color} neon={neon} geometory={geometory}/>
         <div className="chromakey">
           <select 
             defaultValue={chromakey} 
@@ -66,9 +71,16 @@ function App() {
                     <input id={item} type="radio" name="type" value={item} onClick={onClickType}/>
                     <label htmlFor={item}>{item}</label>
                     {item==="noframe" && <input type='color' defaultValue={color} style={{marginLeft:"10px",width:"50px"}} onChange={(e)=>colorSelect(e)}/>}
-                    {item==="neon" && 
+                    {item==="neon" &&
                       <select style={{marginLeft:"10px"}} onChange={e=>neonSelect(e)}>
                         {neonArray.map((item,index)=>{
+                          return <option key={index} value={item}>{item}</option>
+                        })}
+                      </select>
+                    }
+                    {item==="geometory"&&
+                      <select style={{marginLeft:"10px"}} onChange={e=>geometorySelect(e)}>
+                        {geometryArray.map((item,index)=>{
                           return <option key={index} value={item}>{item}</option>
                         })}
                       </select>

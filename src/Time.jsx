@@ -13,13 +13,19 @@ const Time = (props) => {
             setTime(datetime);
         }
     },1000);
+
+    const setClass = () => {
+        if(props.selectedType==="neon"){
+            return `${props.selectedType} ${props.neon}`
+        }else if(props.selectedType==="geometory"){
+            return `${props.selectedType} ${props.geometory}`
+        }else{
+            return `${props.selectedType}`
+        }
+    }
     
     return(
-        <div className={
-            props.selectedType === "neon"?
-            `${props.selectedType} ${props.neon}`:
-            `${props.selectedType}`
-        }>
+        <div className={setClass()}>
             <div className="date_body"
                 {...props.selectedType==="noframe" && {style:{color:props.color}}}
             >
