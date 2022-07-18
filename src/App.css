@@ -70,11 +70,6 @@
 }
 
 .page_title{
-  font-size: 30px;
-  font-weight: bold;
-  font-family: futura-pt,sans-serif;
-  font-weight: bold;
-  font-style: normal;
   color: #666;
   font-family: a-otf-jun-pro, sans-serif;
   font-weight: 300;
@@ -91,7 +86,7 @@
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .control li{
   cursor: pointer;
@@ -416,12 +411,10 @@
   position: relative;
   width: 300px;
   height: 130px;
-  background-color:#EEEDE7;
   box-sizing: border-box;
   border-radius: 15px;
   padding: 10px 20px;
-  color: #868B8E;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 1.2;
   font-family: marigny,sans-serif;
   font-weight: 300;
@@ -434,9 +427,29 @@
   left: -7px;
   width: 100%;
   height: 100%;
-  border: 3px solid #868B8E;
   box-sizing: border-box;
   border-radius: 15px;
+}
+.geometory.pattern1{
+  background-color:#EEEDE7;
+  color: #868B8E;
+}
+.geometory.pattern1::before{
+  border: 3px solid #868B8E;
+}
+.geometory.pattern2{
+  background-color:#C2C67A;
+  color: #ffffff;
+}
+.geometory.pattern2::before{
+  border: 3px solid #A2AD69;
+}
+.geometory.pattern3{
+  background-color:#8ED7F4;
+  color: #ffffff;
+}
+.geometory.pattern3::before{
+  border: 3px solid #fff;
 }
 
 .geometory .date_body{
@@ -451,9 +464,108 @@
 }
 .geometory .date_day{
   margin-right: 10px;
-  margin-left: -10px;
 }
 .geometory .date_time{
-  font-size: 60px;
+  font-size: 55px;
+  letter-spacing: 4px;
+}
+
+.apex{
+  position: relative;
+  width: 350px;
+  height: 100px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.2;
+  font-size: 15px;
+  font-family: industry,sans-serif;
+  font-weight: bold;
+  font-style: normal;
+}
+.apex.red{
+  background-image: url("./bg/apex-r.png");
+}
+.apex.blue{
+  background-image: url("./bg/apex-b.png");
+}
+.apex.green{
+  background-image: url("./bg/apex-g.png");
+}
+
+.apex .date_body{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: grid; 
+  grid-template-columns: 0.5fr 1.5fr; 
+  grid-template-rows: 1fr 1fr; 
+  gap: 0px 10px; 
+  grid-template-areas: 
+    "b a"
+    "c a";
+}
+.apex .date_day,.apex .date_date{
+  display: inline-block;
+}
+.apex .date_day{
+  grid-area: b;
+  place-self: end start;
+}
+.apex .date_date{
+  grid-area: c;
+  place-self: top;
+}
+.apex .date_time{
+  font-size: 30px;
+  letter-spacing: 4px;
+  font-size: 35px;
+  grid-area: a;
+  place-self: center;
+  transform: scale(1,1.5);
+}
+
+.retro{
+  position: relative;
+  width: 300px;
+  height: 130px;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  font-size: 15px;
+  line-height: 1.2;
+  font-family: ten-mincho,serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.retro.pattern1{
+  background-image: url("./bg/retro-red.png");
+  background-size: contain;
+  color: #fff;
+}
+.retro.pattern2{
+  background-image: url("./bg/retro-beige.png");
+  color: #A67C52;
+}
+
+.retro .date_body{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-40%);
+}
+.retro .date_day,.retro .date_date{
+  opacity: 0.7;
+  display: inline-block;
+}
+.retro .date_day{
+  margin-right: 10px;
+}
+.retro .date_time{
+  font-size: 55px;
   letter-spacing: 4px;
 }

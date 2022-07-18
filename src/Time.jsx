@@ -19,6 +19,10 @@ const Time = (props) => {
             return `${props.selectedType} ${props.neon}`
         }else if(props.selectedType==="geometory"){
             return `${props.selectedType} ${props.geometory}`
+        }else if(props.selectedType==="apex"){
+            return `${props.selectedType} ${props.apex}`
+        }else if(props.selectedType==="retro"){
+            return `${props.selectedType} ${props.retro}`
         }else{
             return `${props.selectedType}`
         }
