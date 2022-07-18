@@ -6,8 +6,11 @@ function App() {
   const [selectedType, setSelectedType] = useState("noframe");
   const [color, setColor] = useState("#ffffff");
   const [neon,setNeon] = useState("white");
+  const [geometory, setGeometory] = useState("pattern1");
   const [chromakey, setChromakey] = useState("green");
   const [custom, setCustom] = useState("#000000");
+  const [apex, setApex] = useState("red");
+  const [retro, setRetro] = useState("pattern1");
 
   const onClickType = (e) =>{
     setSelectedType(e.target.value);
@@ -18,17 +21,29 @@ function App() {
   const neonSelect = (e)=>{
     setNeon(e.target.value);
   }
+  const apexSelect = (e)=>{
+    setApex(e.target.value);
+  }
+  const geometorySelect = (e)=>{
+    setGeometory(e.target.value);
+  }
   const changeChromakey = (e)=>{
     setChromakey(e.target.value);
   }
   const customChromakey = (e)=>{
     setCustom(e.target.value);
   }
+  const retroSelect = (e)=>{
+    setRetro(e.target.value);
+  }
 
-  const array = ["noframe","simple","pastel","neon","retroGame","liquid"];
+
+  const array = ["noframe","simple","pastel","neon","retroGame","liquid","geometory","apex","retro"];
   const neonArray = ["white","blue"];
   const chromakeyArray = ["green","red","blue","costom"];
-
+  const geometryArray = ["pattern1","pattern2","pattern3"];
+  const apexArray = ["red","blue","green"];
+  const retroArray = ["pattern1","pattern2"];
   return (
     <div className="row">
       <div
@@ -39,7 +54,7 @@ function App() {
         }
         {...chromakey === "costom" && {style:{backgroundColor:custom}}}
       >
-        <Time selectedType={selectedType} color={color} neon={neon}/>
+        <Time selectedType={selectedType} color={color} neon={neon} geometory={geometory} apex={apex} retro={retro}/>
         <div className="chromakey">
           <select 
             defaultValue={chromakey} 
@@ -66,11 +81,36 @@ function App() {
                     <input id={item} type="radio" name="type" value={item} onClick={onClickType}/>
                     <label htmlFor={item}>{item}</label>
                     {item==="noframe" && <input type='color' defaultValue={color} style={{marginLeft:"10px",width:"50px"}} onChange={(e)=>colorSelect(e)}/>}
-                    {item==="neon" && 
+                    {item==="neon" &&
                       <select style={{marginLeft:"10px"}} onChange={e=>neonSelect(e)}>
                         {neonArray.map((item,index)=>{
                           return <option key={index} value={item}>{item}</option>
                         })}
+                      </select>
+                    }
+                    {item==="geometory"&&
+                      <select style={{marginLeft:"10px"}} onChange={e=>geometorySelect(e)}>
+                        {geometryArray.map((item,index)=>{
+                          return <option key={index} value={item}>{item}</option>
+                        })}
+                      </select>
+                    }
+                    {item==="apex"&&
+                      <select style={{marginLeft:"10px"}} onChange={e=>apexSelect(e)}>
+                        {
+                          apexArray.map((item,index)=>{
+                            return <option key={index} value={item}>{item}</option>
+                          })
+                        }
+                      </select>
+                    }
+                    {item==="retro"&&
+                      <select style={{marginLeft:"10px"}} onChange={e=>retroSelect(e)}>
+                        {
+                          retroArray.map((item,index)=>{
+                            return <option key={index} value={item}>{item}</option>
+                          })
+                        }
                       </select>
                     }
                   </li>
