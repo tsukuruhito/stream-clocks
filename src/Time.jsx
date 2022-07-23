@@ -7,6 +7,8 @@ const Time = (props) => {
 
     setInterval(()=>{
         const datetime = new Date().toLocaleTimeString().slice(0, -3);
+        setDate(new Date().toLocaleDateString());
+        setDay(new Date().toLocaleString("en-US", { weekday: "long" }));
         if(datetime.length===4){
             setTime("0"+datetime);
         }else{
