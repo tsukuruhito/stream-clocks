@@ -69,6 +69,7 @@ function App() {
       </div>
       <div className="inner">
         <h1 className='page_title'>配信用&nbsp;時計オーバーレイ</h1>
+        <p>本ツールは<a href="https://stream-clocks.com">stream-clocks.com</a>に移行しました。より便利になったのでぜひよろしくお願いします。</p>
         <p>配信で時刻を表示したい場合の素材としてご利用いただけます。</p>
         <p>デザインパターンは今後拡充予定です。</p>
         <p>ご利用にあたって、ご意見、ご要望などはTwitter（<a href="https://twitter.com/ts_create_" target="_blanc" rel="noopener">@ts_create_</a>）のDMでお願いします。</p>
